@@ -64,10 +64,10 @@ class RenderToLayer extends Component {
     if (this.props.useLayerForClickAway) {
       this.layer.style.position = 'relative';
       this.layer.removeEventListener('touchstart', this.onClickAway);
-      this.layer.removeEventListener('click', this.onClickAway);
+      this.layer.removeEventListener('mousedown', this.onClickAway);
     } else {
       window.removeEventListener('touchstart', this.onClickAway);
-      window.removeEventListener('click', this.onClickAway);
+      window.removeEventListener('mousedown', this.onClickAway);
     }
 
     unmountComponentAtNode(this.layer);
@@ -94,7 +94,7 @@ class RenderToLayer extends Component {
 
         if (this.props.useLayerForClickAway) {
           this.layer.addEventListener('touchstart', this.onClickAway);
-          this.layer.addEventListener('click', this.onClickAway);
+          this.layer.addEventListener('mousedown', this.onClickAway);
           this.layer.style.position = 'fixed';
           this.layer.style.top = 0;
           this.layer.style.bottom = 0;
@@ -104,7 +104,7 @@ class RenderToLayer extends Component {
         } else {
           setTimeout(() => {
             window.addEventListener('touchstart', this.onClickAway);
-            window.addEventListener('click', this.onClickAway);
+            window.addEventListener('mousedown', this.onClickAway);
           }, 0);
         }
       }
