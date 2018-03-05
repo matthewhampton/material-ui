@@ -22,9 +22,9 @@
   "homepage": "http://material-ui.com/",
   "scripts": {
     "build": "npm run build:icon-index && npm run build:babel && npm run build:copy-files && npm run build:index",
-    "build:index": "BABEL_ENV=es babel ./src/index.js --out-file ./build/index.es.js",
+    "build:index": "cross-env BABEL_ENV=es babel ./src/index.js --out-file ./build/index.es.js",
     "build:icon-index": "babel-node ./scripts/icon-index-generator.js",
-    "build:babel": "NODE_ENV=release babel ./src --out-dir ./build --ignore spec.js",
+    "build:babel": "cross-env NODE_ENV=release babel ./src --out-dir ./build --ignore spec.js",
     "build:copy-files": "babel-node ./scripts/copy-files.js",
     "clean:build": "rimraf build",
     "lint": "eslint src docs/src test --quiet && echo \"eslint: no lint errors\"",
@@ -39,9 +39,9 @@
     "test:unit:watch": "cross-env NODE_ENV=test babel-node test/watch.js unit"
   },
   "peerDependencies": {
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0",
-    "react-tap-event-plugin": "^1.0.0 || ^2.0.0"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-tap-event-plugin": "^3.0.0"
   },
   "dependencies": {
     "babel-runtime": "^6.11.6",
@@ -49,10 +49,11 @@
     "keycode": "^2.1.1",
     "lodash.merge": "^4.6.0",
     "lodash.throttle": "^4.1.1",
+    "prop-types": "^15.6.1",
     "react-addons-create-fragment": "^15.0.0",
-    "react-addons-transition-group": "^15.0.0",
-    "react-event-listener": "^0.4.0",
-    "recompose": "^0.20.2",
+    "react-transition-group": "^1.2.1",
+    "react-event-listener": "^0.5.3",
+    "recompose": "^0.26.0",
     "simple-assign": "^0.1.0",
     "warning": "^3.0.0"
   },
