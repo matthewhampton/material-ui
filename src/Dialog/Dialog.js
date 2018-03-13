@@ -223,7 +223,7 @@ class DialogInline extends Component {
     if (autoDetectWindowHeight || autoScrollBodyContent) {
       const styles = getStyles(this.props, this.context);
       styles.body = Object.assign(styles.body, bodyStyle);
-      let maxDialogContentHeight = clientHeight - 2 * 64;
+      let maxDialogContentHeight = (clientHeight - paddingTop) - 2 * 64;
 
       if (title) maxDialogContentHeight -= dialogContent.previousSibling.offsetHeight;
 

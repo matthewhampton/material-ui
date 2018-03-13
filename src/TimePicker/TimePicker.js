@@ -40,6 +40,10 @@ class TimePicker extends Component {
      */
     format: PropTypes.oneOf(['ampm', '24hr']),
     /**
+     * Tells the component to display the text in `ampm` (12hr) format or `24hr` format.
+     */
+    displayFormat: PropTypes.oneOf(['ampm', '24hr']),
+    /**
      * Override the label of the 'OK' button.
      */
     okLabel: PropTypes.node,
@@ -182,6 +186,7 @@ class TimePicker extends Component {
       dialogBodyStyle,
       dialogStyle,
       format,
+      displayFormat,
       okLabel,
       onFocus, // eslint-disable-line no-unused-vars
       onTouchTap, // eslint-disable-line no-unused-vars
@@ -202,7 +207,7 @@ class TimePicker extends Component {
           {...other}
           style={textFieldStyle}
           ref="input"
-          value={time === emptyTime ? null : formatTime(time, format, pedantic)}
+          value={time === emptyTime ? null : formatTime(time, displayFormat, pedantic)}
           onFocus={this.handleFocusInput}
           onTouchTap={this.handleTouchTapInput}
         />
